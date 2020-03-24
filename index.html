@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kelimelik Hesaplayıcı</title>
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/css/all.css" rel="stylesheet" />
+    <link href="./assets/css/login.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="https://dl.icerde.com/cdn/images/favicon.png">
+    <script src="https://kit.fontawesome.com/23343b9016.js" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142763996-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-142763996-3');
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center font-weight-bold">Kelimelik Hesaplayıcı</h5>
+                        <form class="form-signin">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-label-group">
+                                        <input type="number" id="inputWin" name="inputWin" class="form-control" required
+                                            autofocus>
+                                        <label for="inputWin">Kazanılan maç sayısı</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-label-group">
+                                        <input type="number" id="inputTotal" name="inputTotal" class="form-control"
+                                            required>
+                                        <label for="inputTotal">Toplam maç sayısı</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btnArea">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="button"
+                                            id="btnCalc" disabled>Hesapla</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-lg btn-danger btn-block text-uppercase" type="button"
+                                            id="btnClear" hidden>Temizle</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="msgArea mt-5">
+                              
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/jquery.slim.min.js"></script>
+    <script src="./assets/js/app.js?v=2"></script>
+</body>
+
+</html>
