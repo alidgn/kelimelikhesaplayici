@@ -122,22 +122,35 @@ function calculate() {
     if (!(result.result)) return result;
 
     var rate = calculateRate(result.win, result.total);
-    var nextRate = rate + 1;
-    var nextRateWins = getNextRate(result.win, result.total, 1);
-    var messages = [
-        `Kazanılan maç sayısı:#<span class="text-success">${result.win}</span>`,
-        `Kaybedilen maç sayısı:#<span class="text-danger">${result.total - result.win}</span>`,
-        `Toplam maç sayısı:#<span class="text-primary">${result.total}</span>`,
-        `Başarı oranı:#<span class="text-info">%${rate}</span>`,
-        `<strong>%${nextRate}</strong> için kazanılacak maç sayısı:#<span class="text-warning">${nextRateWins}</span>`,
-    ]
+    if(rate < 100){
+
+        var nextRate = rate + 1;
+        var nextRateWins = getNextRate(result.win, result.total, 1);
+        var messages = [
+            `Kazanılan maç sayısı:#<span class="text-success">${result.win}</span>`,
+            `Kaybedilen maç sayısı:#<span class="text-danger">${result.total - result.win}</span>`,
+            `Toplam maç sayısı:#<span class="text-primary">${result.total}</span>`,
+            `Başarı oranı:#<span class="text-info">%${rate}</span>`,
+            `${rate == 0 ? "<strong>Lütfen en az bir maç kazanın.</strong>" : `<strong>%${nextRate}</strong> için kazanılacak maç sayısı:`}#<span class="text-warning">${nextRateWins}</span>`
+        ]
+    }else{
+        var messages = [
+            `Kazanılan maç sayısı:#<span class="text-success">${result.win}</span>`,
+            `Kaybedilen maç sayısı:#<span class="text-danger">${result.total - result.win}</span>`,
+            `Toplam maç sayısı:#<span class="text-primary">${result.total}</span>`,
+            `Başarı oranı:#<span class="text-info">%${rate}</span>`,
+            `<strong>En yüksek başarı oranına ulaştınız.</strong>#<span class="text-warning">${0}</span>`
+        ]
+    }
+    
     return { result: true, messageType: "dark", messages: messages };
 }
 
 function calculateRate(win, total) {
     win = parseInt(win);
     total = parseInt(total);
-    return Math.round(win / total * 100);
+    var rate = Math.round(win / total * 100)
+    return isNaN(rate) ? 0 : rate;
 }
 
 function getNextRate(win, total, count) {
