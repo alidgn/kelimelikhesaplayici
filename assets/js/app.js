@@ -6,6 +6,8 @@ const inputWin = $('#inputWin');
 const inputTotal = $('#inputTotal');
 const btnArea = $('.btnArea');
 const msgArea = $('.msgArea');
+const pageTitle = document.title;
+const titlePageChanged = ['#EvdeHayatVar', '#EvdeKal'];
 
 (function ($) {
     $.fn.inputFilter = function (inputFilter) {
@@ -171,3 +173,12 @@ function getNextRate(win, total, count) {
 
     return 0;
 }
+
+$(window).blur(function(e) {
+    var getTitle = Math.floor(Math.random() * 2); 
+    $(document).prop('title', titlePageChanged[getTitle]);
+});
+
+$(window).focus(function(e) {
+    $(document).prop('title', pageTitle);
+});
